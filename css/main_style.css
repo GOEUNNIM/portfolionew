@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+#con1 {
+  width: 100%;
+  height: 100vh;
+}
+
+.main_visual {
+  opacity: 0.2;
+}
+
+svg {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  width: 1200px;
+  width: 1200px;
+  transition: transform 0.1s linear;
+  pointer-events: none;
+}
+
+text {
+  font-size: 18px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  fill: white;
+  transition: opacity 0.1s linear;
+}
+
+
+
+#con2 {
+  width: 100%;
+  height: 100vh;
+}

@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+@media (max-width: 1024px) {
+  body {
+    padding: 0 40px;
+  }
+
+  .logo img {
+    width: 50px;
+  }
+
+  nav {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0 30px;
+  }
+
+  header {
+    height: 70px;
+  }
+
+  .logo img {
+    width: 40px;
+  }
+
+  nav {
+    gap: 30px;
+  }
+
+  nav a {
+    font-size: 1rem;
+  }
+}
+
+
+@media (max-width: 393px) {
+  body {
+    padding: 0 20px;
+  }
+
+  header {
+    height: 60px;
+  }
+
+  .logo img {
+    width: 35px;
+  }
+
+  .desktop_menu {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
