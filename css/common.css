@@ -4,14 +4,14 @@
   --main-color: #151515;
   --main-color-wh: #fff;
   --main-color-be: #BF9264;
-  --font-ko-pretendard: 'Pretendard-Light';
+  --font-ko-pretendard: 'Pretendard-Thin';
   --font-en-montserrat: "Montserrat", sans-serif;
   --font-en-montserratA: "Montserrat Alternates", sans-serif;
   --font-en-athena: 'Athena_Light';
 }
 
 body {
-  font-family: 'Pretendard-Light';
+  font-family: 'Pretendard-Thin';
   background-color: var(--main-color);
   padding: 0 150px;
 }

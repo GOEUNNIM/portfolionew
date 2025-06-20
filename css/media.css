@@ -12,6 +12,10 @@
   nav {
     gap: 60px;
   }
+
+  #con1 h2 {
+    font-size: 65px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -34,10 +38,18 @@
   nav a {
     font-size: 1rem;
   }
+
+  #con1 h2 {
+    font-size: 54px;
+  }
 }
 
 
 @media (max-width: 393px) {
+  * {
+    overflow-x: hidden;
+  }
+
   body {
     padding: 0 20px;
   }
@@ -56,5 +68,20 @@
 
   .hamburger {
     display: flex;
+  }
+
+  #con1 h2 {
+    font-size: 40px;
+  }
+
+  svg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10;
+    width: 300px;
+    height: 300px;
   }
 }

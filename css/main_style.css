@@ -3,10 +3,20 @@
 #con1 {
   width: 100%;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.main_visual {
-  opacity: 0.2;
+.visual_wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 svg {
@@ -14,21 +24,36 @@ svg {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1) rotate(0deg);
-  width: 1200px;
-  width: 1200px;
+  width: 1000px;
+  height: 1000px;
+  opacity: 0.2;
   transition: transform 0.1s linear;
   pointer-events: none;
 }
 
 text {
-  font-size: 18px;
-  font-weight: 100;
-  letter-spacing: 1px;
+  font-size: 16px;
+  letter-spacing: 2px;
   fill: white;
   transition: opacity 0.1s linear;
 }
 
+.main_visual {
+  opacity: 0.2;
+}
 
+.main_visual img {
+  object-fit: contain;
+}
+
+#con1 h2 {
+  font-size: 80px;
+  text-align: center;
+  line-height: 1.3;
+  z-index: 1;
+  color: var(--main-color-wh);
+  position: absolute;
+}
 
 #con2 {
   width: 100%;

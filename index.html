@@ -59,31 +59,50 @@
       </div>
     </header>
 
+
     <section id="con1">
-      <div class="main_visual">
-        <div class="main_visual_video">
-          <!-- <video src="asset/main_visual.mp4" loop autoplay muted></video> -->
-          <img src="asset/main_visual.png" alt="수선화">
+      <div class="visual_wrap">
+        <div class="circle_text">
+          <svg viewBox="0 0 500 500">
+            <defs>
+              <path id="circlePath" d="M250,50 a200,200 0 1,1 -0.1,0" />
+            </defs>
+            <g id="textGroup">
+              <text id="circleText">
+                <textPath href="#circlePath" textLength="1250" lengthAdjust="spacing">
+                  WELCOME TO MY PORTFOLIO WELCOME TO MY PORTFOLIO
+                </textPath>
+              </text>
+            </g>
+          </svg>
         </div>
-      </div>
-      <div class="circle_text">
-        <svg viewBox="0 0 500 500">
-          <defs>
-            <path id="circlePath" d="M250,50 a200,200 0 1,1 -0.1,0" />
-          </defs>
-          <g id="textGroup">
-            <text id="circleText">
-              <textPath href="#circlePath" textLength="1250" lengthAdjust="spacing">
-                WELCOME TO MY PORTFOLIO WELCOME TO MY PORTFOLIO WELCOME TO MY PORTFOLIO
-              </textPath>
-            </text>
-          </g>
-        </svg>
+
+        <div class="main_visual">
+          <video src="asset/main_visual2.mp4" loop muted autoplay></video>
+          <!-- <img src="asset/main_visual.png" alt="수선화" /> -->
+        </div>
+
+        <h2>지금부터 제가 만든<br>이야기를 시작할게요</h2>
       </div>
     </section>
 
-    <section id="con2">
-
+    <section class="intro">
+      <div class="intro_inner">
+        <div class="intro_image">
+          <img src="asset/profile.png" alt="프로필 이미지" />
+        </div>
+        <div class="intro_text">
+          <h2>EUNNIM</h2>
+          <p>
+            저는 브랜딩을 시작으로 퍼블리싱, 프론트엔드 개발까지<br>
+            다채로운 경험을 통해 사용자와의 연결점을 UX/UI 디자인합니다.
+            언제나 사용자 경험에서 답을 찾고자 고민하며,<br />
+            기업과 사용자 모두에게 의미 있는 가치를 주는
+            <strong>디지털 경험</strong>을 만들고자 합니다.<br />
+            그 여정을 위해 매일 배우고, 시도하며 끈질기게 나아가고 있습니다.
+          </p>
+        </div>
+      </div>
     </section>
   </div><!-- //.wrap -->
 </body>
