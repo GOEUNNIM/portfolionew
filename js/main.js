@@ -42,6 +42,7 @@ $(function () {
     const maxScroll = document.body.scrollHeight - window.innerHeight;
     const scrollRatio = scrollY / maxScroll;
 
+<<<<<<< HEAD
     const rotateDeg = scrollRatio * 120;
     const scale = 0.5 + Math.sin(scrollRatio * Math.PI) * 1;
 
@@ -57,6 +58,11 @@ $(function () {
       const fadeOpacity = distance / fadeRange;
       opacity = Math.min(opacity, fadeOpacity);
     }
+=======
+    const rotateDeg = scrollRatio * 200; // 회전
+    const scale = 1 + Math.sin(scrollRatio * Math.PI) * 1.5; // 중간에 가장 큼
+    const opacity = 0.2 - Math.sin(scrollRatio * Math.PI) * 1; // 중간에서 0.5까지 감소
+>>>>>>> 1323533 (은님)
 
     svg.style.transform = `translate(-50%, -50%) scale(${scale}) rotate(${rotateDeg}deg)`;
     text.style.opacity = opacity;

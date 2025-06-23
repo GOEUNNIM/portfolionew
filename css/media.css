@@ -1,16 +1,16 @@
 @charset "utf-8";
 
 @media (max-width: 1024px) {
-  body {
+  .inner {
     padding: 0 40px;
   }
 
   .logo img {
-    width: 50px;
+    width: 3.125rem;
   }
 
   nav {
-    gap: 60px;
+    gap: 4vw;
   }
 
   #con1 h2 {
@@ -19,20 +19,20 @@
 }
 
 @media (max-width: 768px) {
-  body {
+  .inner {
     padding: 0 30px;
   }
 
   header {
-    height: 70px;
+    height: 4.4vh;
   }
 
   .logo img {
-    width: 40px;
+    width: 2.5rem;
   }
 
   nav {
-    gap: 30px;
+    gap: 3vw;
   }
 
   nav a {
@@ -44,6 +44,7 @@
   }
 }
 
+<<<<<<< HEAD
 
 @media (max-width: 393px) {
   * {
@@ -52,14 +53,15 @@
 
   body {
     padding: 0 20px;
+=======
+@media (max-width: 576px) {
+  .inner {
+    padding: 0 25px;
+>>>>>>> 1323533 (은님)
   }
 
   header {
-    height: 60px;
-  }
-
-  .logo img {
-    width: 35px;
+    height: 4.1vh;
   }
 
   .desktop_menu {
@@ -69,6 +71,7 @@
   .hamburger {
     display: flex;
   }
+<<<<<<< HEAD
 
   #con1 h2 {
     font-size: 40px;
@@ -84,4 +87,22 @@
     width: 300px;
     height: 300px;
   }
+=======
+}
+
+
+@media (max-width: 393px) {
+  .inner {
+    padding: 0 20px;
+  }
+
+  header {
+    height: 3.75vh;
+  }
+
+  .logo img {
+    width: 2.2rem;
+  }
+
+>>>>>>> 1323533 (은님)
 }
