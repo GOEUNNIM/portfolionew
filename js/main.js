@@ -107,6 +107,14 @@ $(function () {
   }, 2000);
 
 
+
+  /* con4 시계 */
+  function setClock() {
+    const now = new Date();
+    const hour = now.getHours() % 12;
+    const minute = now.getMinutes();
+
+
   /* con4 시계 */
   function setClock() {
     const now = new Date();
@@ -119,6 +127,11 @@ $(function () {
     document.getElementById('hourHand').style.transform = `translate(-50%, 0) rotate(${hourDeg}deg)`;
     document.getElementById('minuteHand').style.transform = `translate(-50%, 0) rotate(${minuteDeg}deg)`;
   }
+
+    document.getElementById('hourHand').style.transform = `translate(-50%, 0) rotate(${hourDeg}deg)`;
+    document.getElementById('minuteHand').style.transform = `translate(-50%, 0) rotate(${minuteDeg}deg)`;
+  }
+
 
   setClock();
   setInterval(setClock, 1000);
