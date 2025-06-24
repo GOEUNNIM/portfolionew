@@ -6,8 +6,7 @@
 
 #con1 {
   width: 100%;
-  height: 100vh;
-
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,97 +15,74 @@
 }
 
 .visual_wrap {
+  position: relative;
   width: 100%;
   height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   overflow: hidden;
-  z-index: -1;
 }
 
-.circle_text {
+.visual_wrap::before {
+  content: "";
   position: absolute;
-  /* 중요! 기준점을 갖게 함 */
   top: 50%;
   left: 50%;
-
-  position: relative;
-  margin-bottom: 200px;
-}
-
-.main_visual {
-  opacity: 0.2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-x: hidden;
-
-}
-
-
-svg {
-  position: fixed;
-  top: 70%;
-  left: 50%;
-
-  transform: translate(-50%, -50%) scale(1) rotate(0deg);
-  width: 1000px;
-  height: 1000px;
-  opacity: 0.2;
-
-  transform: translate(-70%, -50%) scale(1) rotate(0deg);
-  width: 800px;
-  width: 800px;
-
-  transition: transform 0.1s linear;
-  pointer-events: none;
-
-  overflow: hidden;
-  z-index: -1;
+  width: 500px;
+  height: 500px;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  opacity: 0.3;
 }
 
 .circle_text {
   position: absolute;
-  /* 중요! 기준점을 갖게 함 */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  overflow: visible;
+  z-index: 1;
 }
 
 .circle_text svg {
   width: 500px;
   height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   transform-origin: center;
   overflow: visible;
-  /* ✅ 반드시 visible */
   transition: transform 0.3s ease-out;
 }
 
-.circle-text svg.initial-animate {
+#circleText {
+  font-size: 15px;
+  fill: white;
+  opacity: 0.2;
+}
+
+.initial-animate {
   opacity: 0;
   transition: transform 1.2s ease-out, opacity 1.2s ease-out;
 }
 
-.circle-text svg.animate-in {
-  transform: rotate(0deg) scale(1);
+.animate-in {
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
   opacity: 1;
-
 }
-
-text {
-  font-size: 16px;
-  letter-spacing: 2px;
-  fill: white;
-  opacity: 0.2;
-  transition: opacity 0.1s linear;
-  opacity: 0.2;
-}
-
 
 .main_visual {
   opacity: 0.2;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  overflow-x: hidden;
+}
+
+.main_visual video {
+  width: auto;
+  height: 800px;
 }
 
 #con1 h2 {
@@ -124,34 +100,16 @@ text {
 
 
 
+/* ========================== */
+/* ========== con2 ========== */
+/* ========================== */
+
+/* 프로필 */
 #con2 {
   width: 100%;
-
-  height: 100vh;
-}
-
-
-
-
-#con2 {
-  width: 100%;
-  height: 100vh;
-}
-
-#con2 .profile {
-  width: 500px;
-  height: 750px;
-  background: url(../asset/profile.png) no-repeat center/contain;
-}
-
-#con2 .profile_info {
   height: 100%;
-  margin-bottom: 200px;
+  padding: 300px 0;
 }
-
-
-  
-
 
 .profile {
   width: 100%;
@@ -164,6 +122,11 @@ text {
 }
 
 .profile_image img {
+  width: 400px;
+  transition: all 0.5s ease;
+}
+
+.profile_image img.active {
   width: 700px;
 }
 
@@ -175,8 +138,8 @@ text {
   font-family: var(--font-en-athena);
   position: absolute;
   left: 50%;
-  bottom: 30%;
-  transform: translate(-50%, -30%);
+  bottom: 28%;
+  transform: translate(-50%, -28%);
 }
 
 .profile_text p {
@@ -192,6 +155,7 @@ text {
 /* ========================== */
 /* ========== con3 ========== */
 /* ========================== */
+
 /* 프로젝트 */
 #con3 {
   width: 100%;
@@ -453,6 +417,7 @@ text {
 
 .shape:hover img {
   transform: scale(1.1);
+  opacity: 0.7;
 }
 
 .shape span {
@@ -470,3 +435,6 @@ text {
 /* ========== con4 ========== */
 /* ========================== */
 
+#con4 {
+  overflow: hidden;
+}

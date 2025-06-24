@@ -2,7 +2,40 @@
 
 /* 1. 모바일 */
 @media (max-width: 599px) {
-  /* 스타일 */
+  .inner {
+    padding: 0 20px;
+  }
+
+  header {
+    height: 3.75vh;
+  }
+
+  .logo img {
+    width: 2.2rem;
+  }
+
+  .desktop_menu {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  #con1 h2 {
+    font-size: 40px;
+  }
+
+  svg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10;
+    width: 300px;
+    height: 300px;
+  }
 }
 
 /* 2. 태블릿 */
@@ -169,4 +202,3 @@
     height: 300px;
   }
 } */
-

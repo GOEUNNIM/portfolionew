@@ -9,74 +9,19 @@ $(function () {
   });
 
 
-  /* main_visual 회전 글씨 */
-  /*   const svg = document.querySelector("svg");
-    const text = document.getElementById("circleText");
-  
-    window.addEventListener("scroll", () => {
-      const scrollY = window.scrollY;
-      const maxScroll = document.body.scrollHeight - window.innerHeight;
-  
-      const scrollRatio = scrollY / maxScroll;
-  
-      const rotateDeg = scrollRatio * 120; // 회전
-      const scale = 0.5 + Math.sin(scrollRatio * Math.PI) * 1; // 중간에 가장 큼
-      const opacity = 1 - Math.sin(scrollRatio * Math.PI) * 0.5; // 중간에서 0.5까지 감소
-  
-      svg.style.transform = `translate(-50%, -50%) scale(${scale}) rotate(${rotateDeg}deg)`;
-      text.style.opacity = opacity;
-    }); */
+  /* con2 프로필 이미지 확대 */
+  window.addEventListener("scroll", () => {
+    const profileImg = document.querySelector(".profile_image img");
+    const section = document.querySelector("#con2");
+    const sectionTop = section.getBoundingClientRect().top;
 
-  /* main_visual 회전 글씨 */
-  document.addEventListener("DOMContentLoaded", () => {
-    const svgs = document.querySelectorAll(".circle_text svg");
-    const text = document.getElementById("circleText");
-    const con2 = document.getElementById("con2");
-
-    // 초기 진입 애니메이션
-    svgs.forEach((svg) => {
-      const randomDeg = (Math.random() - 0.5) * 60; // -30~+30도 회전
-      const randomScale = 0.8 + Math.random() * 0.4; // 0.8~1.2배 확대
-
-      svg.classList.add("initial-animate");
-      svg.style.transform = `rotate(${randomDeg}deg) scale(${randomScale})`;
-
-      void svg.offsetWidth;
-
-      requestAnimationFrame(() => {
-        svg.classList.add("animate-in");
-      });
-
-      setTimeout(() => {
-        svg.classList.remove("initial-animate", "animate-in");
-      }, 1400);
-    });
-
-    // 스크롤에 따른 회전/스케일 + 텍스트 투명도
-    window.addEventListener("scroll", () => {
-      const svgs = document.querySelectorAll(".circle_text svg");
-      const text = document.getElementById("circleText");
-      const con2 = document.getElementById("con2");
-
-      if (!svgs.length || !text || !con2) return;
-
-      const scrollY = window.scrollY;
-      const rotateDeg = scrollY * 0.2; // px당 0.2도 회전
-
-      console.log("스크롤 회전 각도:", rotateDeg); // ✅ 확인
-
-      svgs.forEach((svg) => {
-        svg.style.transform = `translate(-50%, -50%) rotate(${rotateDeg}deg)`;
-      });
-
-      text.style.opacity = "1"; // 일단 고정
-    });
-
+    // 화면 아래에서 60%쯤 보이기 시작하면 커짐
+    if (sectionTop < window.innerHeight * 0.6) {
+      profileImg.classList.add("active");
+    } else {
+      profileImg.classList.remove("active");
+    }
   });
-
-
-
-
 
 
   /* con3 프로젝트 페이지네이션 */
@@ -107,7 +52,6 @@ $(function () {
   }, 2000);
 
 
-
   /* con4 시계 */
   function setClock() {
     const now = new Date();
@@ -115,18 +59,18 @@ $(function () {
     const minute = now.getMinutes();
 
 
-  /* con4 시계 */
-  function setClock() {
-    const now = new Date();
-    const hour = now.getHours() % 12;
-    const minute = now.getMinutes();
+    /* con4 시계 */
+    function setClock() {
+      const now = new Date();
+      const hour = now.getHours() % 12;
+      const minute = now.getMinutes();
 
-    const hourDeg = (hour + minute / 60) * 30; // 360 / 12
-    const minuteDeg = minute * 6; // 360 / 60
+      const hourDeg = (hour + minute / 60) * 30; // 360 / 12
+      const minuteDeg = minute * 6; // 360 / 60
 
-    document.getElementById('hourHand').style.transform = `translate(-50%, 0) rotate(${hourDeg}deg)`;
-    document.getElementById('minuteHand').style.transform = `translate(-50%, 0) rotate(${minuteDeg}deg)`;
-  }
+      document.getElementById('hourHand').style.transform = `translate(-50%, 0) rotate(${hourDeg}deg)`;
+      document.getElementById('minuteHand').style.transform = `translate(-50%, 0) rotate(${minuteDeg}deg)`;
+    }
 
     document.getElementById('hourHand').style.transform = `translate(-50%, 0) rotate(${hourDeg}deg)`;
     document.getElementById('minuteHand').style.transform = `translate(-50%, 0) rotate(${minuteDeg}deg)`;
