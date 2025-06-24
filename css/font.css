@@ -74,24 +74,28 @@
 
 @font-face {
   font-family: 'Athena';
-  src: url('../font/Athena_Light.woff') format('woff');
+  src: url('../font/Athena-Light.woff') format('woff');
   font-style: normal;
+  font-weight: normal;
 }
 
 @font-face {
   font-family: 'Athena';
-  src: url('../font/Athena_Regular.woff') format('woff');
+  src: url('../font/Athena-Regular.woff') format('woff');
   font-style: normal;
+  font-weight: normal;
 }
 
 @font-face {
   font-family: 'Athena';
   src: url('../font/Athena_SemiBold.woff') format('woff');
   font-style: normal;
+  font-weight: normal;
 }
 
 @font-face {
   font-family: 'Athena';
   src: url('../font/Athena_Bold.woff') format('woff');
   font-style: normal;
+  font-weight: normal;
 }

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Circle Text Scroll</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 3000px;
+      background-color: #111;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    .visual_wrap {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .visual_wrap::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 600px;
+      height: 600px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/5/56/Narcissus_Flower.jpg') no-repeat center/cover;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      opacity: 0.3;
+    }
+
+    .circle_text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    .circle_text svg {
+      width: 500px;
+      height: 500px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transform-origin: center;
+      overflow: visible;
+      transition: transform 0.3s ease-out;
+    }
+
+    #circleText {
+      font-size: 16px;
+      fill: white;
+    }
+
+    .initial-animate {
+      opacity: 0;
+      transition: transform 1.2s ease-out, opacity 1.2s ease-out;
+    }
+
+    .animate-in {
+      transform: translate(-50%, -50%) rotate(0deg) scale(1);
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="con1">
+    <div class="visual_wrap">
+      <div class="circle_text">
+        <svg viewBox="0 0 500 500">
+          <defs>
+            <path id="circlePath" d="M250,50 a200,200 0 1,1 -0.1,0" />
+          </defs>
+          <g id="textGroup">
+            <text id="circleText">
+              <textPath href="#circlePath" textLength="1270" lengthAdjust="spacing">
+                WELCOME TO MY PORTFOLIO • WELCOME TO MY PORTFOLIO • WELCOME TO MY PORTFOLIO • WELCOME TO MY PORTFOLIO • 
+              </textPath>
+            </text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const svg = document.querySelector(".circle_text svg");
+
+      // 초기 진입 애니메이션
+      const randomDeg = (Math.random() - 0.5) * 60;
+      svg.classList.add("initial-animate");
+      svg.style.transform = `translate(-50%, -50%) rotate(${randomDeg}deg)`;
+
+      void svg.offsetWidth;
+      requestAnimationFrame(() => {
+        svg.classList.add("animate-in");
+      });
+
+      setTimeout(() => {
+        svg.classList.remove("initial-animate", "animate-in");
+      }, 1400);
+
+      // 스크롤 시 회전
+      window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+        const rotateDeg = scrollY * 0.2;
+
+        svg.style.transform = `translate(-50%, -50%) rotate(${rotateDeg}deg)`;
+      });
+    });
+  </script>
+</body>
+
+</html>
