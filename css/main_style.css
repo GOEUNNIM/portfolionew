@@ -162,6 +162,7 @@
   height: 100%;
   padding: 200px 0;
   background: var(--main-color-be);
+  overflow: visible;
 }
 
 .project_section {
@@ -436,5 +437,169 @@
 /* ========================== */
 
 #con4 {
-  overflow: hidden;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  padding: 300px 0;
+  
+}
+
+.clock_wrapper {
+  display: flex;
+  padding-top: 300px;
+}
+
+.clock_left {
+  width: 65%;
+  height: 100%;
+  position: relative;
+}
+
+.clock_left .text_area h6 {
+  position: absolute;
+}
+
+.clock_left .text_area h6:nth-child(1) {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.clock_left .text_area h6:nth-child(2) {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.clock_left .text_area h6:nth-child(3) {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.time_text h5:nth-child(1) {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.time_text h5:nth-child(2) {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.time_text h5:nth-child(3) {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.time_text h5:nth-child(4) {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.time_text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.time_text h5 {
+  position: absolute;
+  color: #DAC2A3;
+}
+
+.clock_area {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-image: url('/asset/clock_one1.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 5;
+}
+
+.hour,
+.minute {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  background: #DAC2A3;
+  border-radius: 2px;
+}
+
+.hour {
+  width: 6px;
+  height: 100px;
+}
+
+.minute {
+  width: 4px;
+  height: 140px;
+}
+
+.dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #DAC2A3;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.circle_bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 700px;
+  z-index: 1;
+}
+
+.clock_right {
+  width: 35%;
+}
+
+.clock_slide {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.clock_slide h2 {
+  font-size: 5rem;
+  line-height: 1.3;
+  font-weight: 200;
+  color: var(--sub-color-br);
+  font-family: var(--font-en-montserrat);
+}
+
+.c_text {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.c_text .c_tit {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.c_text .c_txt {
+  font-size: 22px;
+  line-height: 1.4;
+  font-weight: 200;
 }

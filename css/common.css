@@ -13,10 +13,11 @@
   --font-en-athena: 'Athena-Regular';
 }
 
+
+
 body {
   font-family: 'Pretendard-Thin';
   background-color: var(--main-color);
-  overflow-x: hidden;
   color: var(--main-color-wh);
 }
 

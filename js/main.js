@@ -53,30 +53,22 @@ $(function () {
 
 
   /* con4 시계 */
-  function setClock() {
+  function updateClock() {
     const now = new Date();
-    const hour = now.getHours() % 12;
-    const minute = now.getMinutes();
+    const hours = now.getHours() % 12;
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
 
+    const hourDeg = (hours + minutes / 60) * 30;     // 360 / 12 = 30도
+    const minuteDeg = (minutes + seconds / 60) * 6;  // 360 / 60 = 6도
 
-    /* con4 시계 */
-    function setClock() {
-      const now = new Date();
-      const hour = now.getHours() % 12;
-      const minute = now.getMinutes();
+    const hourEl = document.querySelector('.clock_area .hour');
+    const minuteEl = document.querySelector('.clock_area .minute');
 
-      const hourDeg = (hour + minute / 60) * 30; // 360 / 12
-      const minuteDeg = minute * 6; // 360 / 60
-
-      document.getElementById('hourHand').style.transform = `translate(-50%, 0) rotate(${hourDeg}deg)`;
-      document.getElementById('minuteHand').style.transform = `translate(-50%, 0) rotate(${minuteDeg}deg)`;
-    }
-
-    document.getElementById('hourHand').style.transform = `translate(-50%, 0) rotate(${hourDeg}deg)`;
-    document.getElementById('minuteHand').style.transform = `translate(-50%, 0) rotate(${minuteDeg}deg)`;
+    hourEl.style.transform = `translate(-50%, 0) rotate(${hourDeg}deg)`;
+    minuteEl.style.transform = `translate(-50%, 0) rotate(${minuteDeg}deg)`;
   }
 
-
-  setClock();
-  setInterval(setClock, 1000);
+  setInterval(updateClock, 1000); // 매초 갱신
+  updateClock(); // 초기 실행
 });
