@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기존에 con4 작성한것</title>
+
+  <style>
+    #con4 {
+      overflow-x: hidden;
+      width: 100%;
+      min-height: 100vh;
+      position: relative;
+      padding: 200px 0;
+    }
+
+    .clock_wrapper {
+      display: flex;
+      align-items: center;
+      margin-top: 100px;
+    }
+
+    .clock_left {
+      width: 65%;
+      height: 100%;
+      position: relative;
+    }
+
+    .clock_left .text_area h6 {
+      position: absolute;
+    }
+
+    .clock_left .text_area h6:nth-child(1) {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .clock_left .text_area h6:nth-child(2) {
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+
+    .clock_left .text_area h6:nth-child(3) {
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .time_text h5:nth-child(1) {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .time_text h5:nth-child(2) {
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+
+    .time_text h5:nth-child(3) {
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .time_text h5:nth-child(4) {
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+
+    .time_text {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .time_text h5 {
+      position: absolute;
+      color: #DAC2A3;
+    }
+
+    .clock_area {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      height: 400px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background-image: url('/asset/clock_oneline1.png');
+      background-size: cover;
+      background-position: center;
+      z-index: 5;
+    }
+
+    .hour,
+    .minute {
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      transform-origin: bottom center;
+      background: #DAC2A3;
+      border-radius: 5px;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .hour {
+      width: 6px;
+      height: 140px;
+    }
+
+    .minute {
+      width: 2px;
+      height: 210px;
+    }
+
+    .dot {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: #DAC2A3;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
+    .circle_bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 700px;
+      z-index: 1;
+    }
+
+    .clock_right {
+      width: 35%;
+    }
+
+    .clock_slide {
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    .clock_slide h3 {
+      font-size: 4.5rem;
+      color: var(--sub-color-br);
+      font-family: var(--font-en-montserrat);
+    }
+
+    .c_text {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .c_text .c_tit {
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+    .c_text .c_txt {
+      font-size: 22px;
+      line-height: 1.4;
+      font-weight: 200;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="con4" class="clock_section">
+    <div class="clock_wrapper inner">
+      <div class="clock_left">
+        <div class="text_area">
+          <h6>EMOTIONAL</h6>
+          <h6>SOLUTION</h6>
+          <h6>CONCENTRATION</h6>
+        </div>
+        <div class="time_text">
+          <h5>12</h5>
+          <h5>3</h5>
+          <h5>6</h5>
+          <h5>9</h5>
+        </div>
+        <div class="slide_area">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide swiper-slide-duplicate"></div>
+            </div>
+          </div>
+          <div class="clock_area">
+            <div class="hour"></div>
+            <div class="minute"></div>
+            <div class="dot"></div>
+          </div><!-- //clock_area -->
+        </div><!-- //.slide_area -->
+        <div class="circle_bg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="700" height="700" viewBox="0 0 700 700" fill="none">
+            <path
+              d="M676.5 344C676.5 527.634 527.411 676.5 343.5 676.5C159.588 676.5 10.5 527.634 10.5 344C10.5 160.366 159.588 11.5 343.5 11.5C527.411 11.5 676.5 160.366 676.5 344ZM343.5 677.5C527.962 677.5 677.5 528.188 677.5 344C677.5 159.812 527.962 10.5 343.5 10.5C159.038 10.5 9.5 159.812 9.5 344C9.5 528.188 159.038 677.5 343.5 677.5ZM686.754 343.924C686.754 533.415 533.141 687.027 343.65 687.027C154.16 687.027 0.546875 533.415 0.546875 343.924C0.546875 154.433 154.16 0.820312 343.65 0.820312C533.141 0.820312 686.754 154.433 686.754 343.924Z"
+              stroke="#DAC2A3" stroke-opacity="0.5"></path>
+          </svg>
+        </div>
+      </div><!-- //.clock_left -->
+      <div class="clock_right">
+        <div class="clock_slide swiper-container">
+          <div class="pagenation"></div>
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="c_text">
+                <div class="c_tit">
+                  <h4>섬세한 관찰력과 감성적 소통</h4>
+                </div>
+                <div class="c_txt">
+                  <p>
+                    작은 불편에도 귀 기울이며,<br>
+                    사용자의 행동과 감정을 세심하게 살핍니다.<br>
+                    섬세한 시선과 따뜻한 소통으로<br>
+                    기억에 남는 경험을 만들어갑니다.
+                  </p>
+                </div>
+              </div><!-- //.c_text -->
+            </div>
+            <div class="swiper-slide">
+              <div class="c_text">
+                <div class="c_tit">
+                  <h4>창의적 문제 해결력</h4>
+                </div>
+                <div class="c_txt">
+                  <p>
+                    다양항 상황에서 새로운<br>
+                    시도를 두려워하지 않고,<br>
+                    창의적인 아이디어로 유연하게<br>
+                    해결하는 힘이 강점입니다.<br>
+                  </p>
+                </div>
+              </div><!-- //.c_text -->
+            </div>
+            <div class="swiper-slide">
+              <div class="c_text">
+                <div class="c_tit">
+                  <h4>집중력과 꾸준한 실행력</h4>
+                </div>
+                <div class="c_txt">
+                  <p>
+                    햇살처럼 꾸준히 스며드는 밝은<br>
+                    에너지로, 끝까지 완성해내는<br>
+                    집중력과 꾸준함으로<br>
+                    프로젝트를 수행할 수 있습니다.<br>
+                  </p>
+                </div>
+              </div><!-- //.c_text -->
+            </div>
+          </div>
+          <h3>My Strength</h3>
+        </div><!-- //.clock_slide -->
+      </div><!-- //.clock_right -->
+    </div><!-- //.clock_wrapper -->
+  </section>
+</body>
+
+</html>

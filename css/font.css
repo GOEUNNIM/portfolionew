@@ -73,17 +73,17 @@
 }
 
 @font-face {
-  font-family: 'Athena';
+  font-family: 'Athena Light';
   src: url('../font/Athena-Light.woff') format('woff');
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
-  font-family: 'Athena';
-  src: url('../font/Athena-Regular.woff') format('woff');
+  font-family: 'Athena Regular';
   font-style: normal;
   font-weight: normal;
+  src: url('../font/Athena-Regular\ \(PERSONAL\ USE\ ONLY\).woff');
 }
 
 @font-face {

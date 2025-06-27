@@ -52,23 +52,111 @@ $(function () {
   }, 2000);
 
 
-  /* con4 시계 */
-  function updateClock() {
-    const now = new Date();
-    const hours = now.getHours() % 12;
-    const minutes = now.getMinutes();
-    const seconds = now.getSeconds();
 
-    const hourDeg = (hours + minutes / 60) * 30;     // 360 / 12 = 30도
-    const minuteDeg = (minutes + seconds / 60) * 6;  // 360 / 60 = 6도
+  /* section__4 시계 */
+  const section__4_tl = gsap.timeline();
+  section__4_tl
+    .to('.section__4', {
+      duration: 1, opacity: 1, stagger: { each: 0.15 },
+      onComplete() {
+        gsap.to('.clock-area .hour', { duration: 1.3, rotate: '45deg' },)
+        gsap.to('.clock-area .minute', { duration: 1.3, rotate: '300deg' }, '<')
+      },
+    })
+    .to('.section__4 .section__4_bg', { duration: 3, scale: 1 })
 
-    const hourEl = document.querySelector('.clock_area .hour');
-    const minuteEl = document.querySelector('.clock_area .minute');
+  ScrollTrigger.create({
+    trigger: '.section__4',
+    start: 'top center',
+    end: 'center center',
+    animation: section__4_tl,
+  })
 
-    hourEl.style.transform = `translate(-50%, 0) rotate(${hourDeg}deg)`;
-    minuteEl.style.transform = `translate(-50%, 0) rotate(${minuteDeg}deg)`;
+  function initSwipers() {
+    $('.section__4 .swiper-container').mouseenter(function () {
+      $('#cursor').addClass('pointer')
+    })
+
+    $('.section__4 .swiper-container').mouseleave(function () {
+      $('#cursor').removeClass('pointer')
+    })
+
+    var sec01Swiper = new Swiper('.section__4 .slide-bx01 .swiper-container', {
+      loop: true,
+      observer: true,
+      observeParents: true,
+      resizeObserver: true,
+      speed: 800,
+      effect: 'fade',
+      // freeMode: true,
+      // watchSlidesProgress: true,
+      fadeEffect: {
+        crossFade: true,
+      },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      // autoHeight: true,
+      pagination: {
+        el: '.section__4 .slide-bx01 .swiper-pagination',
+        type: "fraction",
+        renderFraction: function (currentClass, totalClass) {
+          return '<div class="flexDiv"><span class="' + currentClass + '"></span>' + '<div class="line">/</div>' + '<span class="' + totalClass + '"></span><div>';
+        },
+      },
+      navigation: {
+        nextEl: '.section__4 .slide-bx01 .swiper-button-next',
+        prevEl: '.section__4 .slide-bx01 .swiper-button-prev',
+      },
+      on: {
+        init: function () {
+
+        },
+        realIndexChange: function () {
+          if (this.realIndex === 0) {
+            gsap.to('.clock-area .hour', { duration: 1, rotate: '45deg' })
+            gsap.to('.clock-area .minute', { duration: 1, delay: 0.2, rotate: '450deg' })
+            // gsap.to('.clock-area .minute', {rotate:'450deg'})
+            // gsap.to('.clock-area .hour', {delay:0.2, rotate:'45deg'})
+
+          } else if (this.realIndex === 1) {
+            gsap.to('.clock-area .minute', { duration: 1, rotate: '540deg' })
+            gsap.to('.clock-area .hour', { duration: 1, delay: 0.2, rotate: '90deg' })
+
+          } else if (this.realIndex === 2) {
+            gsap.to('.clock-area .minute', { duration: 1, rotate: '630deg' })
+            gsap.to('.clock-area .hour', { duration: 1, delay: 0.2, rotate: '135deg' })
+
+          } else if (this.realIndex === 3) {
+            gsap.to('.clock-area .minute', { duration: 1, rotate: '720deg' })
+            gsap.to('.clock-area .hour', { duration: 1, delay: 0.2, rotate: '180deg' })
+          }
+        }
+      },
+    });
+
+    var sec01Swiper02 = new Swiper('.section__4 .slide-bx02 .swiper-container', {
+      loop: true,
+      observer: true,
+      observeParents: true,
+      resizeObserver: true,
+      speed: 800,
+      touchRatio: 0,
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true,
+      },
+      // autoplay: {
+      //     delay: 5000,
+      //     disableOnInteraction: false,
+      // },
+    });
+
+    sec01Swiper02.controller.control = sec01Swiper;
+    sec01Swiper.controller.control = sec01Swiper02;
   }
 
-  setInterval(updateClock, 1000); // 매초 갱신
-  updateClock(); // 초기 실행
+  // Call the swiper initialization function
+  initSwipers();
 });
