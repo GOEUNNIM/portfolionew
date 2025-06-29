@@ -8,6 +8,57 @@ $(function () {
     $('#mobileMenu').toggleClass('show');  // 모바일 메뉴 토글
   });
 
+  
+  /* con1 사이클 텍스트 효과 */
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ✅ 초기 진입 애니메이션
+  gsap.set(".circle_text svg", {
+    scale: 3.3,
+    rotate: 360,
+    opacity: 1,
+    transformOrigin: "50% 50%"
+  });
+
+  gsap.to(".circle_text svg", {
+    scale: 1,
+    rotate: 0,
+    duration: 1.4,
+    ease: "power2.out",
+    delay: 0.3,
+    onComplete: () => {
+      // 초기 애니메이션 후 ScrollTrigger 재계산
+      ScrollTrigger.refresh();
+    }
+  });
+
+  // ✅ 스크롤 애니메이션은 타임라인으로 분리
+  const scrollTL = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#con1",
+      start: "top top",
+      end: "bottom center",
+      scrub: true,
+      onUpdate(self) {
+        if (self.progress === 1) {
+          gsap.to(".circle_text svg", { opacity: 0, duration: 0.2 });
+        } else {
+          gsap.to(".circle_text svg", { opacity: 1, duration: 0.2 });
+        }
+      }
+    }
+  });
+
+  scrollTL.to(".circle_text svg", {
+    scale: 3.3,
+    rotate: 360,
+    transformOrigin: "50% 50%",
+    ease: "none"
+  });
+
+
+
+
 
   /* con2 프로필 이미지 확대 */
   window.addEventListener("scroll", () => {
