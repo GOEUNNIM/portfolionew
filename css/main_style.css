@@ -165,49 +165,114 @@
   overflow: visible;
 }
 
-.project_section {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+.project {
+  padding: 50px;
+  position: relative;
 }
 
-.project_header {
+.project h3 {
+  font-size: 4.5rem;
+  font-family: var(--font-en-montserrat);
+  color: var(--sub-color-br);
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
 
-.project_title {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.project_title h3 {
-  font-size: 4.5rem;
-  font-family: var(--font-en-montserrat);
-  color: var(--sub-color-br);
-}
-
-.project_title p {
-  color: var(--sub-color-gy);
+.project p {
   font-weight: 300;
   font-size: 1.6rem;
+  margin-bottom: 30px;
+  color: #5c5246;
+  line-height: 2.5rem;
 }
 
-.project_box {
+.con3Swiper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin-top: 100px;
+}
+
+.project-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 50px;
 }
 
-.project_box .project_info {
+.con3Swiper .text-area {
   display: flex;
   flex-direction: column;
   gap: 50px;
 }
 
-.project_box .project_info_tit {
+.con3Swiper .text-area h2 {
+  font-size: 3.5rem;
+  font-family: var(--font-en-montserrat);
+  color: var(--sub-color-br);
+}
+
+.con3Swiper .text-area p {
+  line-height: 1.8;
+}
+
+.text-area .buttons a {
+  display: inline-block;
+  padding: 12px 30px;
+  margin-right: 15px;
+  border-radius: 30px;
+  background: #4a3b31;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.swiper-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.bar {
+  width: 400px;
+  height: 2px;
+  background: #ccc;
+  position: relative;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.swiper-nav .bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: black;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+.swiper-nav .dots {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+}
+
+.swiper-nav .dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #aaa;
+}
+
+.swiper-nav .dot.active {
+  background: black;
+}
+
+
+/* .project_box .project_info_tit {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -239,7 +304,7 @@
 
 .project_box .project_info_txt .tools_icon {
   display: none;
-}
+} */
 
 .buttons {
   display: flex;

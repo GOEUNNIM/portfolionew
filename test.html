@@ -1,131 +1,225 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Circle Text Scroll</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project List</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      height: 3000px;
-      background-color: #111;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Pretendard', sans-serif; background: #e2caa6; color: #4a3b31; }
+    .project { padding: 50px; position: relative; }
+    h3 { font-size: 48px; margin-bottom: 10px; }
+    p { font-size: 18px; margin-bottom: 30px; color: #5c5246; }
+    .project-container { display: flex; justify-content: space-between; align-items: flex-start; gap: 50px; }
+    .text-area { flex: 1; }
+    .text-area p { line-height: 1.8; }
+    .image-area { flex: 1; text-align: center; }
+    .buttons a {
+      display: inline-block;
+      padding: 12px 30px;
+      margin-right: 15px;
+      border-radius: 30px;
+      background: #4a3b31;
       color: white;
-      font-family: sans-serif;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .swiper-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 60px;
     }
 
-    .visual_wrap {
+    .bar {
+      width: 400px;
+      height: 2px;
+      background: #ccc;
       position: relative;
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      margin-bottom: 10px;
       overflow: hidden;
     }
 
-    .visual_wrap::before {
-      content: "";
+    .bar-fill {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 600px;
-      height: 600px;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/5/56/Narcissus_Flower.jpg') no-repeat center/cover;
-      transform: translate(-50%, -50%);
-      z-index: 0;
-      opacity: 0.3;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: black;
+      width: 0%;
+      transition: width 0.4s ease;
     }
 
-    .circle_text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1;
+    .dots {
+      display: flex;
+      justify-content: space-between;
+      width: 400px;
     }
 
-    .circle_text svg {
-      width: 500px;
-      height: 500px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      transform-origin: center;
-      overflow: visible;
-      transition: transform 0.3s ease-out;
+    .dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #aaa;
     }
 
-    #circleText {
-      font-size: 16px;
-      fill: white;
-    }
-
-    .initial-animate {
-      opacity: 0;
-      transition: transform 1.2s ease-out, opacity 1.2s ease-out;
-    }
-
-    .animate-in {
-      transform: translate(-50%, -50%) rotate(0deg) scale(1);
-      opacity: 1;
+    .dot.active {
+      background: black;
     }
   </style>
 </head>
-
 <body>
-  <section id="con1">
-    <div class="visual_wrap">
-      <div class="circle_text">
-        <svg viewBox="0 0 500 500">
-          <defs>
-            <path id="circlePath" d="M250,50 a200,200 0 1,1 -0.1,0" />
-          </defs>
-          <g id="textGroup">
-            <text id="circleText">
-              <textPath href="#circlePath" textLength="1270" lengthAdjust="spacing">
-                WELCOME TO MY PORTFOLIO • WELCOME TO MY PORTFOLIO • WELCOME TO MY PORTFOLIO • WELCOME TO MY PORTFOLIO • 
-              </textPath>
-            </text>
-          </g>
-        </svg>
+  <article class="project">
+    <h3>Project List</h3>
+    <p>협업의 시너지, 혼자의 몰입까지 모두 담았습니다.</p>
+    <div class="swiper con3Swiper">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="project-container">
+            <div class="text-area">
+              <h2>밥잇슈</h2>
+              <p>웹 반응형 디자인 팀 프로젝트</p>
+              <p><strong>기간 :</strong> 2024.04.16 ~ 06.23</p>
+              <p><strong>참여도 :</strong> 100%</p>
+              <p><strong>사용 툴 :</strong> Photoshop, Illustrator, Midjourney, Figma, Html, Css, Javascript</p>
+              <div class="buttons">
+                <a href="#" target="_blank">기획서</a>
+                <a href="#" target="_blank">홈페이지</a>
+              </div>
+            </div>
+            <div class="image-area">
+              <img src="../asset/project01.png"" alt="프로젝트 미리보기" style="max-width: 100%; height: auto; border-radius: 20px;">
+            </div>
+          </div>
+        </div>
+
+        <!-- 나머지 슬라이드 템플릿 -->
+        <div class="swiper-slide">
+          <div class="project-container">
+            <div class="text-area">
+              <h2>밥잇슈02</h2>
+              <p>웹 반응형 디자인 팀 프로젝트</p>
+              <p><strong>기간 :</strong> 2024.04.16 ~ 06.23</p>
+              <p><strong>참여도 :</strong> 100%</p>
+              <p><strong>사용 툴 :</strong> Photoshop, Illustrator, Midjourney, Figma, Html, Css, Javascript</p>
+              <div class="buttons">
+                <a href="#" target="_blank">기획서</a>
+                <a href="#" target="_blank">홈페이지</a>
+              </div>
+            </div>
+            <div class="image-area">
+              <img src="../asset/project01.png"" alt="프로젝트 미리보기" style="max-width: 100%; height: auto; border-radius: 20px;">
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="project-container">
+            <div class="text-area">
+              <h2>밥잇슈03</h2>
+              <p>웹 반응형 디자인 팀 프로젝트</p>
+              <p><strong>기간 :</strong> 2024.04.16 ~ 06.23</p>
+              <p><strong>참여도 :</strong> 100%</p>
+              <p><strong>사용 툴 :</strong> Photoshop, Illustrator, Midjourney, Figma, Html, Css, Javascript</p>
+              <div class="buttons">
+                <a href="#" target="_blank">기획서</a>
+                <a href="#" target="_blank">홈페이지</a>
+              </div>
+            </div>
+            <div class="image-area">
+              <img src="../asset/project01.png"" alt="프로젝트 미리보기" style="max-width: 100%; height: auto; border-radius: 20px;">
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="project-container">
+            <div class="text-area">
+              <h2>밥잇슈04</h2>
+              <p>웹 반응형 디자인 팀 프로젝트</p>
+              <p><strong>기간 :</strong> 2024.04.16 ~ 06.23</p>
+              <p><strong>참여도 :</strong> 100%</p>
+              <p><strong>사용 툴 :</strong> Photoshop, Illustrator, Midjourney, Figma, Html, Css, Javascript</p>
+              <div class="buttons">
+                <a href="#" target="_blank">기획서</a>
+                <a href="#" target="_blank">홈페이지</a>
+              </div>
+            </div>
+            <div class="image-area">
+              <img src="../asset/project01.png"" alt="프로젝트 미리보기" style="max-width: 100%; height: auto; border-radius: 20px;">
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="project-container">
+            <div class="text-area">
+              <h2>밥잇슈05</h2>
+              <p>웹 반응형 디자인 팀 프로젝트</p>
+              <p><strong>기간 :</strong> 2024.04.16 ~ 06.23</p>
+              <p><strong>참여도 :</strong> 100%</p>
+              <p><strong>사용 툴 :</strong> Photoshop, Illustrator, Midjourney, Figma, Html, Css, Javascript</p>
+              <div class="buttons">
+                <a href="#" target="_blank">기획서</a>
+                <a href="#" target="_blank">홈페이지</a>
+              </div>
+            </div>
+            <div class="image-area">
+              <img src="../asset/project01.png"" alt="프로젝트 미리보기" style="max-width: 100%; height: auto; border-radius: 20px;">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const svg = document.querySelector(".circle_text svg");
+    <div class="swiper-nav">
+      <div class="bar"><div class="bar-fill"></div></div>
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+  </article>
 
-      // 초기 진입 애니메이션
-      const randomDeg = (Math.random() - 0.5) * 60;
-      svg.classList.add("initial-animate");
-      svg.style.transform = `translate(-50%, -50%) rotate(${randomDeg}deg)`;
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.con3Swiper', {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    on: {
+      slideChange: function () {
+        const dots = document.querySelectorAll('.dot');
+        const barFill = document.querySelector('.bar-fill');
+        const index = swiper.realIndex;
 
-      void svg.offsetWidth;
-      requestAnimationFrame(() => {
-        svg.classList.add("animate-in");
-      });
+        // dot 색상 활성화
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === index);
+        });
 
-      setTimeout(() => {
-        svg.classList.remove("initial-animate", "animate-in");
-      }, 1400);
+        // 막대는 점점 길어지는 방식으로 width 조절
+        const progress = ((index + 1) / dots.length) * 100;
+        barFill.style.width = `${progress}%`;
+      }
+    }
+  });
 
-      // 스크롤 시 회전
-      window.addEventListener("scroll", () => {
-        const scrollY = window.scrollY;
-        const rotateDeg = scrollY * 0.2;
+    // 5번 → 1번 슬라이드 전환 시 오른쪽 방향으로 이동하도록 autoplay 커스터마이징
+    let lastRealIndex = 0;
+    swiper.on('slideChangeTransitionEnd', () => {
+      const currentIndex = swiper.realIndex;
 
-        svg.style.transform = `translate(-50%, -50%) rotate(${rotateDeg}deg)`;
-      });
+      if (lastRealIndex === 4 && currentIndex === 0) {
+        swiper.slideToLoop(0, 500, true); // 오른쪽 방향으로 자연스럽게
+      }
+
+      lastRealIndex = currentIndex;
     });
   </script>
 </body>
-
 </html>
