@@ -8,7 +8,7 @@ $(function () {
     $('#mobileMenu').toggleClass('show');  // 모바일 메뉴 토글
   });
 
-  
+
   /* con1 사이클 텍스트 효과 */
   gsap.registerPlugin(ScrollTrigger);
 
@@ -31,6 +31,7 @@ $(function () {
       ScrollTrigger.refresh();
     }
   });
+  
 
   // ✅ 스크롤 애니메이션은 타임라인으로 분리
   const scrollTL = gsap.timeline({
@@ -75,33 +76,86 @@ $(function () {
   });
 
 
-  /* con3 프로젝트 페이지네이션 */
-  const fillLine = document.querySelector(".line_fill");
-  const steps = document.querySelectorAll(".steps li");
+  /* con3 슬라이드 동작 코드 - 수정됨 */
+  const swiper = new Swiper('.con3Swiper', {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    on: {
+      slideChange: function () {
+        const dots = document.querySelectorAll('.swiper-nav .dot');
+        const barFill = document.querySelector('.swiper-nav .bar-fill');
+        const index = swiper.realIndex;
 
-  // 현재 인덱스 설정 (0부터 시작)
-  let currentStep = 0;
+        // dot active 처리
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === index);
+        });
 
-  function updatePagination(index) {
-    steps.forEach((li, i) => {
-      if (i <= index) {
-        li.classList.add("active");
-      } else {
-        li.classList.remove("active");
+        // bar 채워지는 비율 계산
+        const progress = ((index + 1) / dots.length) * 100;
+        barFill.style.width = `${progress}%`;
       }
-    });
+    }
+  });
 
-    // 전체 진행도 비율 계산
-    const percent = (index) / (steps.length - 1) * 100;
-    fillLine.style.width = `${percent}%`;
-  }
+  let lastRealIndex = 0;
+  swiper.on('slideChangeTransitionEnd', () => {
+    const currentIndex = swiper.realIndex;
+    if (lastRealIndex === 4 && currentIndex === 0) {
+      swiper.slideToLoop(0, 500, true);
+    }
+    lastRealIndex = currentIndex;
+  });
 
-  // 예시로 1초마다 한 단계씩 진행
-  setInterval(() => {
-    currentStep = (currentStep + 1) % steps.length;
-    updatePagination(currentStep);
-  }, 2000);
+  // ✅ 초기 상태에서 막대 길이 설정
+  window.addEventListener('load', () => {
+    const dots = document.querySelectorAll('.swiper-nav .dot');
+    const barFill = document.querySelector('.swiper-nav .bar-fill');
+    const index = swiper.realIndex;
 
+    const progress = ((index + 1) / dots.length) * 100;
+    barFill.style.width = `${progress}%`;
+  });
+
+  // ✅ 마우스 호버 시 autoplay 일시정지 / 재시작
+  const swiperEl = document.querySelector('.con3Swiper');
+  swiperEl.addEventListener('mouseenter', () => {
+    swiper.autoplay.stop();
+  });
+  swiperEl.addEventListener('mouseleave', () => {
+    swiper.autoplay.start();
+  });
+
+  /*  //con3 은님이 버전
+    const fillLine = document.querySelector(".line_fill");
+    const steps = document.querySelectorAll(".steps li");
+  
+    // 현재 인덱스 설정 (0부터 시작)
+    let currentStep = 0;
+  
+    function updatePagination(index) {
+      steps.forEach((li, i) => {
+        if (i <= index) {
+          li.classList.add("active");
+        } else {
+          li.classList.remove("active");
+        }
+      });
+  
+      // 전체 진행도 비율 계산
+      const percent = (index) / (steps.length - 1) * 100;
+      fillLine.style.width = `${percent}%`;
+    }
+  
+    // 예시로 1초마다 한 단계씩 진행
+    setInterval(() => {
+      currentStep = (currentStep + 1) % steps.length;
+      updatePagination(currentStep);
+    }, 2000);
+   */
 
 
   /* section__4 시계 */
@@ -210,4 +264,21 @@ $(function () {
 
   // Call the swiper initialization function
   initSwipers();
+
+
+
+
+  /* con5 스킬 */
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to('.line-progress', {
+    height: "100%",
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#con5",
+      start: "top center",
+      end: "bottom center",
+      scrub: true
+    }
+  });
 });
